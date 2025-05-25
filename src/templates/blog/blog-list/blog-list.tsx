@@ -2,11 +2,14 @@ import { PostCard } from "@/templates/blog/components/post-card";
 import { PostGridCard } from "@/templates/blog/components/post-grid-card";
 import { Search } from "@/components/seach";
 import { useRouter } from 'next/router';
-import { allPosts } from 'contentlayer/generated';
+import { type Post } from 'contentlayer/generated';
 import { Inbox } from "lucide-react";
 
+export type BlogListProps = {
+  posts: Post[]
+}
 
-export function BlogList() {
+export function BlogList({ posts }: BlogListProps) {
   const router = useRouter();
   const query = router.query.q as string;
   const pageTitle = query
@@ -15,10 +18,10 @@ export function BlogList() {
 
 
     const postList = query
-    ? allPosts.filter((post) =>
+    ? posts.filter((post) =>
         post.title.toLocaleLowerCase()?.includes(query.toLocaleLowerCase())
       )
-    : allPosts;
+    : posts;
 
   const hasPosts = postList?.length > 0;
  
