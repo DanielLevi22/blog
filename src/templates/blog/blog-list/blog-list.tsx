@@ -1,5 +1,5 @@
-import { PostCard } from "@/components/post-card";
-import { PostGridCard } from "@/components/post-grid-card";
+import { PostCard } from "@/templates/blog/components/post-card";
+import { PostGridCard } from "@/templates/blog/components/post-grid-card";
 import { Search } from "@/components/seach";
 import { useRouter } from 'next/router';
 import { allPosts } from 'contentlayer/generated';
@@ -14,16 +14,16 @@ export function BlogList() {
     : 'Dicas e estratégias para impulsionar seu negócio';
 
 
-    const posts = query
+    const postList = query
     ? allPosts.filter((post) =>
         post.title.toLocaleLowerCase()?.includes(query.toLocaleLowerCase())
       )
     : allPosts;
 
-  const hasPosts = posts?.length > 0;
-  console.log(posts);
+  const hasPosts = postList?.length > 0;
+ 
   return (
-    <div className="flex flex-col py-24 flex-grow h-full">
+      <div className="flex flex-col py-24 flex-grow h-full">
       <header className="pb-14">
         <div className="container space-y-6 flex flex-col items-start justify-between md:flex-row md:items-end lg:items-end">
           <div className="flex flex-col gap-4 md:px-0">
@@ -45,7 +45,7 @@ export function BlogList() {
       {/* Listagem de posts */}
       {hasPosts && (
         <PostGridCard>
-          {posts.map((post) => (
+          {postList.map((post) => (
             <PostCard
               key={post._id}
               title={post.title}
@@ -61,7 +61,8 @@ export function BlogList() {
           ))}
         </PostGridCard>
       )}
-       {!hasPosts && (
+
+      {!hasPosts && (
         <div className="container px-8">
           <div className="flex flex-col items-center justify-center gap-8 border-dashed border-2 border-gray-300 p-8 md:p-12 rounded-lg">
             <Inbox className="h-12 w-12 text-cyan-100" />

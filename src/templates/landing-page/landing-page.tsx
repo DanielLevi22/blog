@@ -1,4 +1,4 @@
-import { CallToAction, HeroSection, SupportSection,CustomerStorySection, FeatureSection } from "./sections";
+import {  HeroSection, SupportSection,CustomerStorySection, FeatureSection } from "./sections";
 
 
 export function LadingPage() {
@@ -8,7 +8,6 @@ export function LadingPage() {
       <FeatureSection />
       <SupportSection />
       <CustomerStorySection />
-      <CallToAction />
     </article>
   )
 }
