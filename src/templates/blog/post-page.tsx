@@ -21,6 +21,7 @@ export const PostPage = ({ post }: PostPageProps) => {
   const publishedDate = new Date(post?.date).toLocaleDateString('pt-BR');
   const postUrl = `https://site.set/blog/${post.slug}`;
 
+
   return (
     <main className="py-20 text-gray-100">
       <div className="container space-y-8 px-4 md:px-8">
