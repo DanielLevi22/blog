@@ -1,0 +1,13 @@
+{
+  "functions": {
+    "src/app/**/*.tsx": {
+      "runtime": "nodejs18.x"
+    }
+  },
+  "build": {
+    "env": {
+      "NODE_VERSION": "18"
+    }
+  },
+  "installCommand": "npm install --legacy-peer-deps"
+}
