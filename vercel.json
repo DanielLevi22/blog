@@ -9,6 +9,6 @@
       "NODE_VERSION": "18"
     }
   },
-  "buildCommand": "rm -rf node_modules package-lock.json yarn.lock && yarn install --ignore-engines && yarn build",
-  "installCommand": "echo 'Install will be done in build command'"
+  "buildCommand": "./build.sh",
+  "installCommand": "echo 'Install will be done in build script'"
 }
