@@ -1,3 +1,4 @@
+'use client'
 import { PostCard } from "@/templates/blog/components/post-card";
 import { PostGridCard } from "@/templates/blog/components/post-grid-card";
 import { Search } from "@/components/seach";
